@@ -11,8 +11,8 @@
     <title>Tēzaurs</title>
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,600,300&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css"/>
-    <link href="css/tooltipster.css" rel="stylesheet" type="text/css"/>
-    <link href="css/tezaurs.css" rel="stylesheet" type="text/css"/>
+    <link href="tooltipster.css" rel="stylesheet" type="text/css"/>
+    <link href="tezaurs.css" rel="stylesheet" type="text/css"/>
 
     <link rel="shortcut icon" href="img/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"/>
@@ -22,18 +22,17 @@
     <link rel="apple-touch-icon" sizes="144x144" href="img/favicon-144x144.png"/>
     <link rel="apple-touch-icon" sizes="192x192" href="img/favicon-192x192.png"/>
 
-    <script src="js/index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/jquery.address.min.js"></script>
-    <script src="js/modernizr.custom.js"></script>
-    <script src="js/jquery.tooltipster.min.js"></script>
-    <script src="js/morphologytables.js"></script>
-    <script src="js/tezaurs.js"></script>
+    <script src="jquery.address.min.js"></script>
+    <script src="modernizr.custom.js"></script>
+    <script src="jquery.tooltipster.min.js"></script>
+    <script src="morphologytables.js"></script>
+    <script src="tezaurs.js"></script>
 </head>
 <body>
     <div id="header">
         <table><tr>
-            <td class="header-col logo"><a href="#/"><img src="img/Tezaurs.svg" id="Tezaurs_SVG" alt="Tēzaurs"/></a></td>
+            <td class="header-col logo"><a href="http://tezaurs.lv/"><img src="img/Tezaurs.svg" id="Tezaurs_SVG" alt="Tēzaurs"/></a></td>
             <td class="header-col" id="searchBar">
 				<noscript>
 					<div style="margin : 0 20px 20px 20px ; font-size: 0.8em ; color : red">
@@ -44,7 +43,7 @@
                     	<div class="form-search-wrapper">
                         	<div class="form-search-field-wrapper">
                             	<table><tr>
-                                	<td><input type="text" name="w" class="form-search-field"/></td>
+                                	<td><input type="text" name="w" class="form-search-field" autocapitalize="off"/></td>
                                 	<td></td>
                             	</tr></table>
                         	</div>
@@ -97,7 +96,7 @@
                 <td id="mainCol">
                     <div id="mainContent"></div>
                 </td>
-                <td id="noteCol">
+                <td id="noteCol hideOnMobile">
                     <div id="sideNotes"></div>
                 </td>
             </tr>
@@ -108,11 +107,11 @@
         <table><tr>
             <td class="footer-col">
                 <table id="footerSVGTable"><tr>
-                    <td><a href="http://lu.lv"><img src="img/LU.svg" id="LU_SVG" class="img-hover" alt="Latvijas Universitāte"/></a></td>
+                    <td><a href="http://lu.lv" target="_blank"><img src="img/LU.svg" id="LU_SVG" class="img-hover" alt="Latvijas Universitāte"/></a></td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><a href="http://lumii.lv"><img src="img/MII.svg" id="MII_SVG" class="img-hover" alt="Matemātikas un informātikas institūts"/></a></td>
+                    <td><a href="http://lumii.lv" target="_blank"><img src="img/MII.svg" id="MII_SVG" class="img-hover" alt="Matemātikas un informātikas institūts"/></a></td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><a href="http://ailab.lv"><img src="img/AILab.svg" id="AILab_SVG" class="img-hover" alt="Mākslīgā intelekta laboratorija"/></a></td>
+                    <td><a href="http://ailab.lv" target="_blank"><img src="img/AILab.svg" id="AILab_SVG" class="img-hover" alt="Mākslīgā intelekta laboratorija"/></a></td>
                 </tr></table>
                 <div class="footnote">Vārdnīcu sastādījis Andrejs Spektors</div>
                 <div class="footnote">Mākslīgā intelekta laboratorija, 2009&ndash;2019</div>
@@ -120,26 +119,26 @@
             <td class="footer-col" id="footerNavMenu">
                 <table><tr>
                     <td>
-                        <div><a class="menu footnote blank" href="#/sv/tēzaurs">Kas ir tēzaurs</a></div>
+                        <div><a class="menu footnote blank" href="#/sv/tēzaurs">Kas ir Tēzaurs</a></div>
                         <div><a class="menu footnote blank" href="#/avoti">Izmantotie avoti</a></div>
                         <div><a class="menu footnote blank hideOnMobile" href="https://github.com/LUMII-AILab/Tezaurs" target="_blank">Atvērtie dati</a></div>
                         <div><span style="color : #9E9E9E" class="menu footnote hideOnMobile" data-href="http://api.tezaurs.lv">Tēzaura API</span></div>
                     </td>
                     <td class="hideOnMobile" style="width : 20px"></td>
                     <td>
-                        <div><span style="color : #9E9E9E" class="menu footnote" data-href="http://m.tezaurs.lv">Mobilā versija</span></div>
+                        <div><span style="color : #9E9E9E" class="menu footnote" data-href="http://m.tezaurs.lv">Mobilā lietotne</span></div>
                         <div><span style="color : #9E9E9E" class="menu footnote blank hideOnMobile" data-href="#/statistika">Statistika</span></div>
                         <div><a class="menu footnote blank hideOnMobile" href="#/vardnicas">Citas vārdnīcas</a></div>
-                        <div><a class="menu footnote blank" href="mailto:tezaurs@ailab.lv">Kontakti</a></div>
-                        <div><a class="menu footnote blank hideOnDesktop" href="http://tezaurs.lv/mlvv/">MLVV</a></div>
-                        <div><a class="menu footnote blank hideOnDesktop" href="http://tezaurs.lv/llvv/">LLVV</a></div>
+                        <div><a class="menu footnote blank hideOnMobile" href="mailto:tezaurs@ailab.lv">Kontakti</a></div>
+                        <div><a class="menu footnote blank hideOnDesktop hideOnMobile" href="http://tezaurs.lv/mlvv/">MLVV</a></div>
+                        <div><a class="menu footnote blank hideOnDesktop hideOnMobile" href="http://tezaurs.lv/llvv/">LLVV</a></div>
                     </td>
                 </tr></table>
             </td>
             <td class="footer-col" id="follow">
                 <div class="footnote">Seko mums</div>
                 <table><tr>
-                    <td><a href="https://twitter.com/AILab_lv"><img src="img/Twitter.png" class="img-hover" alt="Twitter"/></a></td>
+                    <td><a href="https://twitter.com/AILab_lv" target="_blank"><img src="img/Twitter.png" class="img-hover" alt="Twitter"/></a></td>
                     <td style="width : 1em"></td>
                     <td><!--<a href="https://www.facebook.com/ailablv">--><img src="img/Facebook.png" alt="Facebook"/><!--</a>--></td>
                 </tr></table>

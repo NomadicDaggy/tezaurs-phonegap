@@ -3,39 +3,6 @@ var debug = window.location.protocol == 'file:';
 var api_url = 'http://api.tezaurs.lv/v1';
 if (debug) api_url = 'http:/localhost:8182/v1';
 
-function resizeMain() {
-	/*var delta = 20 + $('#header').outerHeight() + $('#footer').outerHeight();
-	if ($(window).width() > 768) {
-		var min = $(window).height() - delta;
-		//console.log('min:           ', min);
-		$('#searchResults').css('min-height', min);
-		$('#mainContent').css('min-height', min);
-		$('#sideNotes').css('min-height', min);
-	} /* else {
-		console.log('window.height: ', $(window).height());
-		console.log('header:        ', $('#header').outerHeight());
-		console.log('mainContent:   ', $('#mainContent').outerHeight());
-		console.log('searchResults: ', $('#searchResults').outerHeight());
-		console.log('footer:        ', $('#footer').outerHeight());
-		var min =
-			$(window).height() -
-			$('#header').outerHeight() -
-			$('#mainContent').outerHeight() -
-			$('#searchResults').outerHeight() -
-			$('#footer').outerHeight();
-		console.log('min:           ', min);
-		console.log('\n');
-		$('#searchResults').css('min-height', 0);
-		$('#mainContent').css('min-height', 0);
-
-		if (min > 0) {
-			$('#noteCol').css('min-height', min);
-		} else {
-			$('#noteCol').css('min-height', 0);
-		}
-	}*/
-}
-
 function isEncodedURIComponent(arg) {
 	return decodeURIComponent(arg) !== arg;
 }
@@ -94,7 +61,9 @@ function updateMorphotable(data, paradigm, pluralEntryWord, secondThirdConj, sel
 		var indent = parseFloat($('.case-indent').css('width'));
 		indent += parseFloat($('.case-indent').css('padding-right'));
 		$('.sub-indent').css('margin-left', indent);
-		$('.sv_Section').css('font-size', $('.sv_Entry').css('font-size'));
+		if ($(window).width() > 768) {
+			$('.sv_Section').css('font-size', $('.sv_Entry').css('font-size'));
+		}
 		$('.items', selector).hide();
 
 		$('#toggle_Morphology', selector).click(function() {
@@ -132,10 +101,9 @@ function loadContent(doc, word) {
 					$(this).attr('href', '#/sv/?' + $(this).data('w'));
 				}
 			});
-
+			// mobile
 			if ($(window).width() < 769) {
-				console.log('small');
-				$('.sv_NO').append(
+				$('.sv_Sense:has(>div)>.sv_NO').append(
 					' <img src="img/expand.svg" class="toggle_Subsenses expand_SVG" width="14" height="14" alt="+"/>'
 				);
 
@@ -161,8 +129,6 @@ function loadContent(doc, word) {
 						}
 					});
 				});
-			} else {
-				console.log('large');
 			}
 
 			$('.sv_Section', '.sv_Idioms').append(
@@ -378,15 +344,15 @@ function loadContent(doc, word) {
 					}
 
 					$('#examples').html(
-						'<div class="sv_Section" style="font-size: 16px;"><span>Korpusa piemēri: </span>' +
+						'<div class="sv_Section"><span>Korpusa piemēri: </span>' +
 							'<img src="img/expand.svg" id="toggle_Examples" class="expand_SVG" width="14" height="14" alt="+"/></div>' +
 							'<div class="items">' +
 							example_html +
 							'</div>'
 					);
-
-					$('.sv_Section').css('font-size', $('.sv_Entry').css('font-size'));
-
+					if ($(window).width() > 768) {
+						$('.sv_Section').css('font-size', $('.sv_Entry').css('font-size'));
+					}
 					$('.items', '#examples').hide();
 					$('#toggle_Examples').click(function() {
 						// TODO: jāvispārina kā atsevišķa f-cija
@@ -481,8 +447,9 @@ function loadContent(doc, word) {
 			});
 			// Feedback form - END
 		}
-
-		$('#searchField').select();
+		if ($(window).width() > 768) {
+			$('#searchField').select();
+		}
 	});
 }
 
@@ -513,19 +480,27 @@ function loadResults(doc) {
 			$(this).attr('href', '#/sv/' + hw + (hom == 0 ? '' : '/' + hom));
 		});
 
-		$('#searchField').select();
+		if ($(window).width() > 768) {
+			$('#searchField').select();
+		}
 	});
 }
 
 $(document).ready(function() {
 	$('#jsonly').css('visibility', 'visible');
 
-	$('#searchField').select();
+	if ($(window).width() > 768) {
+		$('#searchField').select();
+	}
 
 	$('#searchForm').submit(function() {
 		var w = $('#searchField').val();
 		$('#searchField').val('');
-		$('#searchField').select();
+		if ($(window).width() > 768) {
+			$('#searchField').select();
+		} else {
+			$('#searchField').blur();
+		}
 		$('#keyboard').hide();
 		$.address.value('sv/?' + w);
 		return false;
@@ -565,15 +540,6 @@ $(document).ready(function() {
 		$('.expand_SVG').attr('src', 'img/expand.png');
 		$('.collapse_SVG').attr('src', 'img/collapse.png');
 	}
-});
-
-$(window).load(function() {
-	delta = $('#header').outerHeight() + $('#footer').outerHeight();
-	resizeMain();
-});
-
-$(window).resize(function() {
-	resizeMain();
 });
 
 $.address.change(function(event) {
