@@ -1,7 +1,7 @@
 var delta = 20;
 var debug = window.location.protocol == 'file:';
 var api_url = 'https://api.tezaurs.lv/v1';
-if (debug) api_url = 'https:/localhost:8182/v1';
+//if (debug) api_url = 'https:/localhost:8182/v1';
 
 function isEncodedURIComponent(arg) {
 	return decodeURIComponent(arg) !== arg;
