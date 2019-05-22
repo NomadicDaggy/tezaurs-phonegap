@@ -40,6 +40,12 @@ sup {
 	font-size: 0.7em;
 }
 
+input[type=text] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
 a:link {
 	color: inherit;
 	text-decoration: underline;
@@ -132,7 +138,6 @@ a.menu:active {
 	white-space: nowrap;
 }
 
-#searchResults,
 #sideNotes {
 	min-width: 150px;
 	padding: 0 20px 20px 20px;
@@ -517,6 +522,7 @@ input::-webkit-focus-inner {
 }
 
 .sv_Section {
+	font-family: sans-serif;
 	font-variant: small-caps;
 	font-weight: 300;
 	margin-bottom: 0.15em;
@@ -759,9 +765,10 @@ span.inflection {
 	}
 
 	#searchResults {
-		min-height: 0px;
 		padding: 0;
 		margin: 1.5em 0 1.5em;
+		min-height: 0px;
+		min-width: 150px;
 		max-width: 235px;
 	}
 
@@ -871,10 +878,6 @@ span.inflection {
 		margin-top: .17em;
 		vertical-align: middle;
 		padding-left: 0;
-	}
-
-	#searchResults {
-		max-width: 50%;
 	}
 
 	/*
