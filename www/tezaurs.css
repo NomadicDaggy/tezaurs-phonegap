@@ -1,4 +1,4 @@
-/*
+	/*
     Krāsas: http://www.google.com/design/spec/style/color.html
     Vairāk: http://www.color-hex.com/
     Paletes: pavasaris, vasara, rudens, ziema
@@ -138,6 +138,7 @@ a.menu:active {
 	white-space: nowrap;
 }
 
+#searchResults,
 #sideNotes {
 	min-width: 150px;
 	padding: 0 20px 20px 20px;
@@ -384,7 +385,7 @@ input::-webkit-focus-inner {
 }
 
 .feedback-submit {
-	color: #ff9800;
+	color: #f48b14;
 	background-color: #ffe0b2;
 	border: 1px solid #ffe0b2;
 }
@@ -397,7 +398,7 @@ input::-webkit-focus-inner {
 
 .separator {
 	display: inline-block;
-	width: 4px;
+	width: 0.5em;
 }
 
 .feedback-text {
@@ -430,7 +431,7 @@ input::-webkit-focus-inner {
 }
 
 .status-fail {
-	color: #ff9800;
+	color: #f48b14;
 }
 
 .no-svg .form-search-submit {
@@ -586,6 +587,7 @@ input::-webkit-focus-inner {
 
 .sv_Source {
 	cursor: pointer;
+	text-decoration: underline;
 }
 
 .sv_Source:hover {
@@ -601,7 +603,8 @@ input::-webkit-focus-inner {
 #toggle_Idioms,
 .toggle_Subsenses,
 #toggle_Morphology,
-#toggle_Examples {
+#toggle_Examples,
+#toggle_Credits {
 	vertical-align: middle;
 	display: inline;
 	cursor: pointer;
@@ -612,14 +615,25 @@ input::-webkit-focus-inner {
 .disclaimer {
 	font-size: 0.8em;
 	margin-top: 1em;
-	color: #ff9800;
+	color: #f48b14;
 }
 
 #pronunciation,
 .morphology,
-#examples {
+#examples,
+#credits {
 	margin-top: 1.5em;
 	font-size: 0.9em;
+}
+
+.credits-item {
+	margin-top: 0.5em;
+	margin-right: 0.5em;
+	font-style: italic;
+}
+
+.credits-list {
+	margin-top: 0.5em;
 }
 
 .example {
@@ -735,6 +749,11 @@ span.inflection {
 		flex-direction: column;
 	}
 
+	/* Atstarpes starp avotiem */
+	#mainContent > #doc > table > tbody > tr {
+		padding: 0.5em 0;
+	}
+
 	#main td {
 		width: 100%;
 		padding: 0 15px;
@@ -754,7 +773,7 @@ span.inflection {
 
 	#twitterButton,
 	#feedbackButton {
-		height: auto;
+		height: 2em;
 		width: auto;
 	}
 
@@ -765,10 +784,9 @@ span.inflection {
 	}
 
 	#searchResults {
+		min-height: 0px;
 		padding: 0;
 		margin: 1.5em 0 1.5em;
-		min-height: 0px;
-		min-width: 150px;
 		max-width: 235px;
 	}
 
@@ -799,7 +817,8 @@ span.inflection {
 
 	#pronunciation,
 	.morphology,
-	#examples {
+	#examples,
+	#credits {
 		margin-top: 1.5em;
 		font-size: 1em;
 	}
@@ -884,13 +903,8 @@ span.inflection {
 		padding-left: 0;
 	}
 
-	/*
-	#version {
-		display: unset;
-		font-size: 0.8em;
-		float: right;
-		position: absolute;
-		margin-top: -4em;
+	#searchResults {
+		max-width: 50%;
 	}
-*/
+
 }
