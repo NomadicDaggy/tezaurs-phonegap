@@ -437,7 +437,7 @@ function loadContent(doc, word) {
 			$('#twitterButton').click(function() {
 				var tweet =
 					'https://twitter.com/intent/tweet?text=Sk.&url=' +
-				    	'#' +
+				    	'https://tezaurs.lv/#' +
 					encodeURIComponent(location.href).split('#')[1] +
 					'&via=AILab_lv';
 
