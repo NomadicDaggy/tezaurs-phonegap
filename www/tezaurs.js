@@ -437,7 +437,8 @@ function loadContent(doc, word) {
 			$('#twitterButton').click(function() {
 				var tweet =
 					'https://twitter.com/intent/tweet?text=Sk.&url=' +
-					encodeURIComponent(location.href) +
+				    	'#' +
+					encodeURIComponent(location.href).split('#')[1] +
 					'&via=AILab_lv';
 
 				var width = 550,
